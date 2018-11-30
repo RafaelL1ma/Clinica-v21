@@ -15,6 +15,8 @@ public class Doctor implements Serializable{
 	private String rg;
 	private Integer age;
 	private String crm;
+        private String specialty;
+        
 	public Integer getId() {
 		return id;
 	}
@@ -48,6 +50,20 @@ public class Doctor implements Serializable{
 
     public void setVisible(boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the specialty
+     */
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    /**
+     * @param specialty the specialty to set
+     */
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
     }
 	
 		

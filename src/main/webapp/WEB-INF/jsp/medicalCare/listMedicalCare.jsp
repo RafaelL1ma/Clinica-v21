@@ -26,7 +26,8 @@
                 <tr>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>Data</th> 
+                    <th>Data</th>
+                    <th>Medico</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -36,6 +37,7 @@
                         <td>${m.id}</td>
                         <td>${m.nomePaciente}</td> 
                         <td>${m.data}</td>
+                        <td>${m.medico}</td>
                         <td>
                             <a href="${pageContext.request.contextPath}/consulta/editar/${m.id}">Editar</a>
                             <a href="${pageContext.request.contextPath}/consulta/remover/${m.id}">Remover</a>

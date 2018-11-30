@@ -11,7 +11,9 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.dao.DoctorDAO;
 import br.com.dao.MedicalCareDAO;
+import br.com.model.Doctor;
 import javax.inject.Inject;
 import br.com.model.MedicalCare;
 import java.util.List;
@@ -28,14 +30,20 @@ public class MedicalCareController {
     private Result result;
     @Inject
     private MedicalCareDAO careDao;
+    @Inject 
+    private DoctorDAO doctorDAO;
 
     @Get("novo")
     public void newMedicalCare() {
-
+        List<Doctor> doctor = doctorDAO.findAll();
+        for (Doctor doctor1 : doctor) {
+        }
+        result.include("it", doctor);
     }
 
     @Post("novo")
     public void newMedicalCare(MedicalCare care) {
+        
         careDao.save(care);
         result.redirectTo(this).listMedicalCare();
     }

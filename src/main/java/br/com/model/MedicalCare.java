@@ -1,6 +1,7 @@
 package br.com.model;
 
 import java.util.Date;
+import javax.inject.Inject;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,17 @@ public class MedicalCare {
     private Integer id;
     private String nomePaciente;
     private String data;
+    private String medico;
 
+    public String getMedico() {
+        return medico;
+    }
+
+    public void setMedico(String medico) {
+        this.medico = medico;
+    }
+    
+    
     public Integer getId() {
         return id;
     }

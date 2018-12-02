@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div class="parallax">
-                    <img src="padraozao.jpg" alt="Unsplashed background img 1"></div>
+                    <img class="responsive-img" src="assets/img/teste.jpg" alt="Unsplashed background img 1"></div>
             </div>
 
 

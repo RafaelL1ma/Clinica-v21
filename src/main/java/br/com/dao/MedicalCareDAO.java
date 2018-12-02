@@ -40,9 +40,6 @@ public class MedicalCareDAO {
             em.getTransaction().begin();
             em.merge(care);
             em.getTransaction().commit();
-        } catch (Exception e){
-            System.err.println(e);
-            em.getTransaction().rollback();
         } finally {
             em.close();
         }

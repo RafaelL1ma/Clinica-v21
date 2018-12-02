@@ -14,44 +14,50 @@
             <title>Lista de Médicos</title>
         </head>
         <body>
-            
-            <jsp:include page="../common/nav.jsp"></jsp:include>
-            
-            <form action="${pageContext.request.contextPath}/medico/busca" method="post">
-            <input type="text" name="doctorName">
-            <button type="submit">Buscar</button>
-        </form>
-        <h5>Lista de Médicos</h5>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>RG</th> 
-                    <th>Idade</th>
-                    <th>Crm</th>
-                    <th>AÇÕES</th>
 
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach var="m" items="${it}">
+        <jsp:include page="../common/nav.jsp"></jsp:include>
+            <div class="container">
+                <form action="${pageContext.request.contextPath}/medico/busca" method="post" style="margin-top: 50px;">
+                <div class="input-field col 12" style="margin-top: 50px;">
+
+                    <label for="doctorSearch">Buscar</label>
+                    <input type="text" id="doctorSearch" name="doctorName">
+                    <div class="input-field col s3 offset-s6">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Buscar</button>
+                    </div>
+                </div>
+            </form>
+            <h5 style="text-align: center;">Lista de Médicos</h5>
+            <table border="1" style="margin-top: 40px;">
+                <thead>
                     <tr>
-                        <td>${m.name}</td>
-                        <td>${m.rg}</td>             
-                        <td>${m.age}</td>
-                        <td>${m.crm}</td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/medico/editar/${m.id}">Editar</a>
-                            <a href="${pageContext.request.contextPath}/medico/remover/${m.id}">Remover</a>
-                        </td>
-                    </tr>
+                        <td>NOME</td>
+                        <td>RG</td> 
+                        <td>IDADE</td>
+                        <td>CRM</td>
+                        <th>AÇÕES</th>
 
-                </c:forEach>
-            </tbody>
-        </table>
-        
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach var="m" items="${it}">
+                        <tr>
+                            <td>${m.name}</td>
+                            <td>${m.rg}</td>             
+                            <td>${m.age}</td>
+                            <td>${m.crm}</td>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/medico/editar/${m.id}">Editar</a>
+                                <a href="${pageContext.request.contextPath}/medico/remover/${m.id}">Remover</a>
+                            </td>
+                        </tr>
+
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
         <jsp:include page="../common/footer.jsp"></jsp:include>
         <jsp:include page="../common/js.jsp"></jsp:include>
-        
+
     </body>
 </html>

@@ -1,13 +1,13 @@
   
 
- <ul id="dropdown1" class="dropdown-content">
-                <li><a href="${pageContext.request.contextPath}/paciente/lista">Paciente</a></li>
-                <li class="divider"></li>
-                <li><a href="${pageContext.request.contextPath}/medico/lista">Medico</a></li>
-                <li class="divider"></li>
-                <li><a href="${pageContext.request.contextPath}/consulta/lista">Consulta</a></li>
-            </ul>
-            
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="${pageContext.request.contextPath}/paciente/lista">Paciente</a></li>
+    <li class="divider"></li>
+    <li><a href="${pageContext.request.contextPath}/medico/lista">Medico</a></li>
+    <li class="divider"></li>
+    <li><a href="${pageContext.request.contextPath}/consulta/lista">Consulta</a></li>
+</ul>
+
 <nav class=" teal escurecer-1" role="navigation">    
     <div class="nav-wrapper container">
         <a id="logo-container" href="${pageContext.request.contextPath}/" class="brand-logo"style="color:white" >ClinicaLife</a>

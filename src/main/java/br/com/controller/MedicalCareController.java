@@ -13,9 +13,11 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.dao.DoctorDAO;
 import br.com.dao.MedicalCareDAO;
+import br.com.dao.PatientDAO;
 import br.com.model.Doctor;
 import javax.inject.Inject;
 import br.com.model.MedicalCare;
+import br.com.model.Patient;
 import java.util.List;
 
 /**
@@ -30,11 +32,19 @@ public class MedicalCareController {
     private Result result;
     @Inject
     private MedicalCareDAO careDao;
-    @Inject 
+    @Inject
     private DoctorDAO doctorDAO;
+    @Inject
+    private PatientDAO patientDAO;
 
     @Get("novo")
     public void newMedicalCare() {
+        List<Patient> patient = patientDAO.findAll();
+        for (Patient patient1 : patient) {
+
+        }
+        result.include("et", patient);
+
         List<Doctor> doctor = doctorDAO.findAll();
         for (Doctor doctor1 : doctor) {
         }
@@ -42,18 +52,21 @@ public class MedicalCareController {
     }
 
     @Post("novo")
-    public void newMedicalCare(MedicalCare care) {
-        
+    public void newMedicalCare(MedicalCare care, Integer doctorId, Integer patientId) {
+        Patient patient = patientDAO.findById(patientId);
+        care.setPatient(patient);
+        Doctor doctor = doctorDAO.findById(doctorId);
+        care.setDoctor(doctor);
         careDao.save(care);
         result.redirectTo(this).listMedicalCare();
     }
 
-    @Post("atualizar")
+    @Post("editar")
     public void editMedicalCare(MedicalCare medicalCare) {
         careDao.update(medicalCare);
         result.redirectTo(this).listMedicalCare();
     }
-    
+
     @Get("remover/{id}")
     public void removePatient(Integer id) {
 
@@ -62,11 +75,12 @@ public class MedicalCareController {
         careDao.remove(id);
         result.redirectTo(this).listMedicalCare();
     }
+
     @Get("editar/{id}")
     public void editMedicalCare(Integer id) {
-       MedicalCare medicalCare = careDao.findById(id);
+        MedicalCare medicalCare = careDao.findById(id);
         result.include("medicalCare", medicalCare);
- 
+
     }
 
     @Get("lista")
@@ -78,11 +92,11 @@ public class MedicalCareController {
         }
         result.include("it", medicalCare);
     }
-    
+
     @Public
     @Post("simples")
     public void simpleSearch(String medicalCareDate) {
-        
+
         List<MedicalCare> medicalCare = (List<MedicalCare>) careDao.findByDate(medicalCareDate);
         result.include("it", medicalCare);
         result.of(this).listMedicalCare();

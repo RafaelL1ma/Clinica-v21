@@ -9,16 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastrar médico</title>
         <jsp:include page="../common/head.jsp"></jsp:include>
 
         </head>
         <body>
-
         <jsp:include page="../common/nav.jsp"></jsp:include>
-
             <div class="container">  
-                <form class="col s12" action="novo" method="post"> 
+                <form class="col s12" action="novo" method="post" style="margin-top: 30px" > 
                     <br>
                     <div ><h5 style="text-align: center;"><i class="material-icons">account_box</i> Cadastro de Medico</h5></div>
                     <div class="row">

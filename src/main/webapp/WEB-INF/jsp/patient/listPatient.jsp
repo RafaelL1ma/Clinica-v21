@@ -9,26 +9,27 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lista</title>
+        <title>Lista de pacientes</title>
         <jsp:include page="../common/head.jsp"></jsp:include>
         </head>
         <body>
 
         <jsp:include page="../common/nav.jsp"></jsp:include>
-            <div class="container">
 
-                <form action="${pageContext.request.contextPath}/paciente/simples" method="post">
-                <div class="input-field col s6">
-                    <input type="text" name="patientName">
-                </div>
-                <div class="input-field col s3 offset-s10">
-                    <button class="btn waves-effect waves-light" type="submit" name="action">Buscar</button>
+            <div class="container">
+                <form class="col s12" action="${pageContext.request.contextPath}/paciente/simples" method="post" style="margin-top: 50px;">
+                <div class="input-field col s6 offset-s3">
+                    <label for="patientSearch">Buscar</label>
+                    <input type="text" id="patientSearch" name="patientName">
+                    <div class="input-field col s3 offset-s6">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">Buscar</button>
+                    </div>
                 </div>
             </form>
-            <table class="highlight" border="1">
+                <h5 style="text-align: center;">Lista de Pacientes</h5>
+                <table class="highlight" border="1" style="margin-top: 50px;">
                 <thead>
                     <tr>
-                        <td>ID</td>
                         <td>NOME</td>
                         <td>RG</td>
                         <td>IDADE</td>
@@ -40,7 +41,6 @@
                 <tbody>
                     <c:forEach var="p" items="${it}">
                         <tr>
-                            <td>${p.id}</td>
                             <td>${p.name}</td>
                             <td>${p.rg}</td>             
                             <td>${p.age}</td>

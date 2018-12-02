@@ -76,8 +76,8 @@ public class PatientDAO {
         EntityManager em = ConnectionFactory.getConnection();
         Patient patient = null;
         try {
-            patient = em.find(Patient.class, id);
             em.getTransaction().begin();
+            patient = em.find(Patient.class, id);
             em.remove(patient);
             em.getTransaction().commit();
         } catch (Exception e) {

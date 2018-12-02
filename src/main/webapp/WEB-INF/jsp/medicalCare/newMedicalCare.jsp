@@ -18,27 +18,26 @@
 
         <jsp:include page="../common/nav.jsp"></jsp:include>
 
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
             <div class="container">
-                <form class="col s12" action="novo" method="post">
-                    <div><h5 style="text-align: center;" ><i class="material-icons">account_box</i>Marcar Consulta</h5></div>
+                <form class="col s12" action="novo" method="post" style="margin-top: 50px;">
+                    <div><h5 style="text-align: center;" ><i class="material-icons" style="margin-top: 100px;">account_box</i>Marcar Consulta</h5></div>
                     <div class="row">
-                        <div class="input-field col s6 offset-s3 ">
-                            <label class="active" for="name">Nome do paciente</label>
-                            <input type="text" id="name" name="care.nomePaciente" class="validate">
-                        </div>
-                        <div class="input-field col s6 offset-s3 ">
-                            <label class="active" for="data">Data</label>
-                            <input type="text" id="data" name="care.data" class="validate">
-                        </div>
-                        <div class="input-field col s5 offset-s3">
-                            <select name="specialty">
+                        <div class="input-field col s6 offset-s3">
+                            <select name="patientId">
+                            <c:forEach var="patient" items="${et}">
+                                <option value="${patient.id}">${patient.name} : ${patient.rg}</option>
+                            </c:forEach>    
+                        </select>
+                    </div>
+
+                    <div class="input-field col s6 offset-s3 ">
+                        <label class="active" for="data">Data</label>
+                        <input type="text" id="data" name="care.data" class="validate">
+                    </div>
+                    <div class="input-field col s6 offset-s3">
+                        <select name="doctorId">
                             <c:forEach var="doctor" items="${it}">
-                                <option value="${doctor.name}">${doctor.name} : ${doctor.specialty}</option>
+                                <option value="${doctor.id}">${doctor.name} : ${doctor.specialty}</option>
                             </c:forEach>    
                         </select>
                     </div>
@@ -47,7 +46,6 @@
                     <div class="input-field col s3 offset-s5">
                         <button class="btn waves-effect waves-light" type="submit" name="action" style="margin-top: 40%;">Marcar Consulta</button>
                     </div>
-
                 </div>
             </form>
 

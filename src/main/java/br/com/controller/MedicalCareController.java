@@ -51,6 +51,8 @@ public class MedicalCareController {
         result.include("it", doctor);
     }
 
+    
+    
     @Post("novo")
     public void newMedicalCare(MedicalCare care, Integer doctorId, Integer patientId) {
         Patient patient = patientDAO.findById(patientId);
@@ -62,9 +64,31 @@ public class MedicalCareController {
     }
 
     @Post("editar")
-    public void editMedicalCare(MedicalCare medicalCare) {
+    public void editMedicalCare(MedicalCare medicalCare, Integer doctorId, Integer patientId) {
+        Patient patient = patientDAO.findById(patientId);
+        medicalCare.setPatient(patient);
+        Doctor doctor = doctorDAO.findById(doctorId);
+        medicalCare.setDoctor(doctor);
         careDao.update(medicalCare);
         result.redirectTo(this).listMedicalCare();
+    }
+
+    @Get("editar/{id}")
+    public void editMedicalCare(Integer id) {
+        List<Doctor> doctor = doctorDAO.findAll();
+        for (Doctor doctor1 : doctor) {
+        }
+        result.include("cu", doctor);
+        
+        List<Patient> patient = patientDAO.findAll();
+        for (Patient patient1 : patient) {
+
+        }
+        result.include("co", patient);
+
+        MedicalCare medicalCare = careDao.findById(id);
+        result.include("medicalCare", medicalCare);
+
     }
 
     @Get("remover/{id}")
@@ -74,13 +98,6 @@ public class MedicalCareController {
         result.include("medicalCare", medicalCare);
         careDao.remove(id);
         result.redirectTo(this).listMedicalCare();
-    }
-
-    @Get("editar/{id}")
-    public void editMedicalCare(Integer id) {
-        MedicalCare medicalCare = careDao.findById(id);
-        result.include("medicalCare", medicalCare);
-
     }
 
     @Get("lista")

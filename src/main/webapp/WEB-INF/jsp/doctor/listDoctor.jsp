@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html">
+        <meta charset="UTF-8">
         <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"	%>
         <jsp:include page="../common/head.jsp"></jsp:include>
             <title>Lista de Médicos</title>
@@ -35,6 +36,7 @@
                         <td>RG</td> 
                         <td>IDADE</td>
                         <td>CRM</td>
+                        <td>ESPECIALIDADE</td>
                         <th>AÇÕES</th>
 
                     </tr>
@@ -46,9 +48,10 @@
                             <td>${m.rg}</td>             
                             <td>${m.age}</td>
                             <td>${m.crm}</td>
+                            <td>${m.specialty}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/medico/editar/${m.id}">Editar</a>
-                                <a href="${pageContext.request.contextPath}/medico/remover/${m.id}">Remover</a>
+                                <a href="${pageContext.request.contextPath}/medico/editar/${m.id}"><i class="material-icons teal-text">create</i></a>
+                                <a href="${pageContext.request.contextPath}/medico/remover/${m.id}"><i class="material-icons red-text">delete</i></a>
                             </td>
                         </tr>
 

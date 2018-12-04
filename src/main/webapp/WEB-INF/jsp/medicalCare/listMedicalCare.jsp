@@ -12,6 +12,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Consultas</title>
         <jsp:include page="../common/head.jsp"></jsp:include>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta charset="UTF-8">
         </head>
         <body>
 
@@ -41,10 +43,10 @@
                     <tr>
                         <td>${m.patient.name}</td> 
                         <td>${m.data}</td>
-                        <td>${m.doctor.name}</td>
+                        <td>${m.doctor.name} : ${m.doctor.specialty}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/consulta/editar/${m.id}">Editar</a>
-                            <a href="${pageContext.request.contextPath}/consulta/remover/${m.id}">Remover</a>
+                            <a href="${pageContext.request.contextPath}/consulta/editar/${m.id}"><i class="material-icons teal-text">create</i></a>
+                            <a href="${pageContext.request.contextPath}/consulta/remover/${m.id}"><i class="material-icons red-text">delete</i></a>
                         </td>
                     </tr>
                 </c:forEach>

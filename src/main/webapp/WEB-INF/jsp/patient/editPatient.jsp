@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <jsp:include page="../common/head.jsp"></jsp:include>
-
+        <meta charset="UTF-8">
         </head>
         <body>
 

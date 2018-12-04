@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Editar Doutor</title>
         <jsp:include page="../common/head.jsp"></jsp:include>
-
+            <meta charset="UTF-8">
         </head>
         <body>
 
@@ -28,7 +28,6 @@
                         <label class="active" for="name">Nome</label>
                         <br><input type="text" id="name" name="doctor.name" value="${doctor.name}" class="validate"><br>
                     </div>
-
                     <div class="input-field col s6 offset-s3 ">
                         <label class="active" for="rg">RG</label>
                         <input type="text" id="rg" name="doctor.rg" value="${doctor.rg}" class="validate"><br>
@@ -36,6 +35,10 @@
                     <div class="input-field col s6 offset-s3 ">
                         <label class="active" for="age">Idade</label>
                         <input type="text" id="age" name="doctor.age" value="${doctor.age}" class="validate"><br>
+                    </div>
+                    <div class="input-field col s6 offset-s3 ">
+                        <label class="active" for="specialty">Especialidade</label>
+                        <input type="text" id="specialty" name="doctor.specialty" value="${doctor.specialty}" class="validate"><br>
                     </div>
                     <div class="input-field col s6 offset-s3 ">
                         <label class="active" for="crm">CRM</label>
@@ -48,10 +51,10 @@
                     </div>
 
                 </div>
+        </div>
+        <jsp:include page="../common/footer.jsp"></jsp:include>   
+        <jsp:include page="../common/js.jsp"></jsp:include>
 
-                <jsp:include page="../common/footer.jsp"></jsp:include>   
-                <jsp:include page="../common/js.jsp"></jsp:include>
 
-
-                </body>
-                </html>
+    </body>
+</html>

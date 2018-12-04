@@ -33,6 +33,7 @@ public class PatientController {
     @Get("novo")
     public void newPatient() {
     }
+    
 
     @Post("novo")
     public void newPatient(Patient patient) {

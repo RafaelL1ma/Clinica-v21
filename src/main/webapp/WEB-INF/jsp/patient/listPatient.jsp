@@ -10,6 +10,7 @@
 <html>
     <head>
         <title>Lista de pacientes</title>
+        <meta charset="UTF-8">
         <jsp:include page="../common/head.jsp"></jsp:include>
         </head>
         <body>
@@ -46,8 +47,8 @@
                             <td>${p.age}</td>
                             <td>${p.weight}</td>
                             <td>
-                                <a href="${pageContext.request.contextPath}/paciente/editar/${p.id}">Editar</a>
-                                <a href="${pageContext.request.contextPath}/paciente/remover/${p.id}">remover</a>
+                                <a href="${pageContext.request.contextPath}/paciente/editar/${p.id}"><i class="material-icons teal-text">create</i></a>
+                                <a href="${pageContext.request.contextPath}/paciente/remover/${p.id}"><i class="material-icons red-text">delete</i></a>
                             </td>
                         </tr>
 

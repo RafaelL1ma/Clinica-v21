@@ -30,7 +30,8 @@ public class DoctorController {
     public void newDoctor() {
 
     }
-
+    
+    
     @Post("novo")
     public void newDoctor(Doctor doctor) {
         doctorDAO.save(doctor);
